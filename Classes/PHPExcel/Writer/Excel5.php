@@ -361,7 +361,7 @@ class PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter
 			}
 
 			// AutoFilters
-			if($sheet->getAutoFilter()->getRange() !== ''){
+			if($sheet->getAutoFilter()->getRange() != ''){
 				$rangeBounds = PHPExcel_Cell::rangeBoundaries($sheet->getAutoFilter()->getRange());
 				$iNumColStart = $rangeBounds[0][0];
 				$iNumColEnd = $rangeBounds[1][0];

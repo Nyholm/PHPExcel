@@ -643,6 +643,9 @@ class PHPExcel_Cell
 	 */
 	public static function rangeBoundaries($pRange = 'A1:A1')
 	{
+		if($pRange=='')
+			$pRange = 'A1:A1';
+		
 		// Uppercase coordinate
 		$pRange = strtoupper($pRange);
 

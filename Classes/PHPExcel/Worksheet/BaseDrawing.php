@@ -238,7 +238,7 @@ class PHPExcel_Worksheet_BaseDrawing implements PHPExcel_IComparable
     			// Set new PHPExcel_Worksheet
     			$this->setWorksheet($pValue);
     		} else {
-    			throw new Exception("A PHPExcel_Worksheet has already been assigned. Drawings can only exist on one PHPExcel_Worksheet.");
+    			throw new \Exception("A PHPExcel_Worksheet has already been assigned. Drawings can only exist on one PHPExcel_Worksheet.");
     		}
     	}
     	return $this;

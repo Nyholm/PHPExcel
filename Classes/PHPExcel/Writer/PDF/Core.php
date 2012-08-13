@@ -233,7 +233,7 @@ abstract class PHPExcel_Writer_PDF_Core extends PHPExcel_Writer_HTML {
 		if (is_dir($pValue)) {
 			$this->_tempDir = $pValue;
 		} else {
-			throw new Exception("Directory does not exist: $pValue");
+			throw new \Exception("Directory does not exist: $pValue");
 		}
 		return $this;
 	}

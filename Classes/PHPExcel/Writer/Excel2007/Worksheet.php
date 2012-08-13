@@ -133,7 +133,7 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 			// Return
 			return $objWriter->getData();
 		} else {
-			throw new Exception("Invalid PHPExcel_Worksheet object passed.");
+			throw new \Exception("Invalid PHPExcel_Worksheet object passed.");
 		}
 	}
 
@@ -1016,7 +1016,7 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 
 			$objWriter->endElement();
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 
@@ -1140,7 +1140,7 @@ class PHPExcel_Writer_Excel2007_Worksheet extends PHPExcel_Writer_Excel2007_Writ
 
 			$objWriter->endElement();
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 

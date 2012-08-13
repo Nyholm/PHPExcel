@@ -516,7 +516,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		try {
@@ -543,7 +543,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetNames = array();
@@ -592,7 +592,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetInfo = array();
@@ -1648,7 +1648,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			case self::XLS_WorkbookGlobals:
 				$version = self::_GetInt2d($recordData, 0);
 				if (($version != self::XLS_BIFF8) && ($version != self::XLS_BIFF7)) {
-					throw new Exception('Cannot read this Excel file. Version is too old.');
+					throw new \Exception('Cannot read this Excel file. Version is too old.');
 				}
 				$this->_version = $version;
 				break;
@@ -1689,7 +1689,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 		// move stream pointer to next record
 		$this->_pos += 4 + $length;
 
-		throw new Exception('Cannot read encrypted file');
+		throw new \Exception('Cannot read encrypted file');
 	}
 
 
@@ -3777,7 +3777,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 				// add cell value. If we can read formula, populate with formula, otherwise just used cached value
 				try {
 					if ($this->_version != self::XLS_BIFF8) {
-						throw new Exception('Not BIFF8. Can only read BIFF8 formulas');
+						throw new \Exception('Not BIFF8. Can only read BIFF8 formulas');
 					}
 					$formula = $this->_getFormulaFromStructure($formulaStructure); // get formula in human language
 					$cell->setValueExplicit('=' . $formula, PHPExcel_Cell_DataType::TYPE_FORMULA);
@@ -5344,7 +5344,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 					$spacetype = 'type5';
 					break;
 				default:
-					throw new Exception('Unrecognized space type in tAttrSpace token');
+					throw new \Exception('Unrecognized space type in tAttrSpace token');
 					break;
 				}
 				// offset: 3; size: 1; number of inserted spaces/carriage returns
@@ -5353,7 +5353,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 				$data = array('spacetype' => $spacetype, 'spacecount' => $spacecount);
 				break;
 			default:
-				throw new Exception('Unrecognized attribute flag in tAttr token');
+				throw new \Exception('Unrecognized attribute flag in tAttr token');
 				break;
 			}
 			break;
@@ -5558,7 +5558,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			case 360: $function = 'PHONETIC';		$args = 1;	break;
 			case 368: $function = 'BAHTTEXT';		$args = 1;	break;
 			default:
-				throw new Exception('Unrecognized function in formula');
+				throw new \Exception('Unrecognized function in formula');
 				break;
 			}
 			$data = array('function' => $function, 'args' => $args);
@@ -5662,7 +5662,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			case 366: $function = 'STDEVA';			break;
 			case 367: $function = 'VARA';			break;
 			default:
-				throw new Exception('Unrecognized function in formula');
+				throw new \Exception('Unrecognized function in formula');
 				break;
 			}
 			$data = array('function' => $function, 'args' => $args);
@@ -5790,7 +5790,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 			break;
 		// Unknown cases	// don't know how to deal with
 		default:
-			throw new Exception('Unrecognized token ' . sprintf('%02X', $id) . ' in formula');
+			throw new \Exception('Unrecognized token ' . sprintf('%02X', $id) . ' in formula');
 			break;
 		}
 
@@ -5902,7 +5902,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 
 		// check values
 		if ($fr > $lr || $fc > $lc) {
-			throw new Exception('Not a cell range address');
+			throw new \Exception('Not a cell range address');
 		}
 
 		// column index to letter
@@ -5941,7 +5941,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 
 		// check values
 		if ($fr > $lr || $fc > $lc) {
-			throw new Exception('Not a cell range address');
+			throw new \Exception('Not a cell range address');
 		}
 
 		// column index to letter
@@ -6167,7 +6167,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 				case 'internal':
 					// check if we have a deleted 3d reference
 					if ($this->_ref[$index]['firstSheetIndex'] == 0xFFFF or $this->_ref[$index]['lastSheetIndex'] == 0xFFFF) {
-						throw new Exception('Deleted sheet reference');
+						throw new \Exception('Deleted sheet reference');
 					}
 
 					// we have normal sheet range (collapsed or uncollapsed)
@@ -6197,7 +6197,7 @@ class PHPExcel_Reader_Excel5 implements PHPExcel_Reader_IReader
 
 				default:
 					// TODO: external sheet support
-					throw new Exception('Excel5 reader only supports internal sheets in fomulas');
+					throw new \Exception('Excel5 reader only supports internal sheets in fomulas');
 					break;
 			}
 		}

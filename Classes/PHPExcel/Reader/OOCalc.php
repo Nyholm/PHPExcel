@@ -187,12 +187,12 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Check if zip class exists
 		if (!class_exists('ZipArchive')) {
-			throw new Exception("ZipArchive library is not enabled");
+			throw new \Exception("ZipArchive library is not enabled");
 		}
 
 		// Load file
@@ -226,7 +226,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetNames = array();
@@ -291,7 +291,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetInfo = array();
@@ -365,11 +365,11 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
-		$timezoneObj = new DateTimeZone('Europe/London');
-		$GMT = new DateTimeZone('UTC');
+		$timezoneObj = new \DateTimeZone('Europe/London');
+		$GMT = new \DateTimeZone('UTC');
 
 		$zip = new ZipArchive;
 		if ($zip->open($pFilename) === true) {
@@ -612,7 +612,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 													break;
 											case 'date' :
 													$type = PHPExcel_Cell_DataType::TYPE_NUMERIC;
-												    $dateObj = new DateTime($cellDataOfficeAttributes['date-value'], $GMT);
+												    $dateObj = new \DateTime($cellDataOfficeAttributes['date-value'], $GMT);
 													$dateObj->setTimeZone($timezoneObj);
 													list($year,$month,$day,$hour,$minute,$second) = explode(' ',$dateObj->format('Y m d H i s'));
 													$dataValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year,$month,$day,$hour,$minute,$second);

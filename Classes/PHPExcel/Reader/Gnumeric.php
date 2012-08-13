@@ -198,12 +198,12 @@ class PHPExcel_Reader_Gnumeric implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Check if gzlib functions are available
 		if (!function_exists('gzread')) {
-			throw new Exception("gzlib library is not enabled");
+			throw new \Exception("gzlib library is not enabled");
 		}
 
 		// Read signature data (first 3 bytes)
@@ -229,7 +229,7 @@ class PHPExcel_Reader_Gnumeric implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$gFileData = $this->_gzfileGetContents($pFilename);
@@ -309,7 +309,7 @@ class PHPExcel_Reader_Gnumeric implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$gFileData = $this->_gzfileGetContents($pFilename);
@@ -341,11 +341,11 @@ class PHPExcel_Reader_Gnumeric implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
-		$timezoneObj = new DateTimeZone('Europe/London');
-		$GMT = new DateTimeZone('UTC');
+		$timezoneObj = new \DateTimeZone('Europe/London');
+		$GMT = new \DateTimeZone('UTC');
 
 		$gFileData = $this->_gzfileGetContents($pFilename);
 

@@ -73,7 +73,7 @@ class PHPExcel_CachedObjectStorage_Memcache extends PHPExcel_CachedObjectStorage
 			if (!$this->_memcache->replace($this->_cachePrefix.$this->_currentObjectID.'.cache',$obj,NULL,$this->_cacheTime)) {
 				if (!$this->_memcache->add($this->_cachePrefix.$this->_currentObjectID.'.cache',$obj,NULL,$this->_cacheTime)) {
 					$this->__destruct();
-					throw new Exception('Failed to store cell '.$this->_currentObjectID.' in MemCache');
+					throw new \Exception('Failed to store cell '.$this->_currentObjectID.' in MemCache');
 				}
 			}
 			$this->_currentCellIsDirty = false;
@@ -122,7 +122,7 @@ class PHPExcel_CachedObjectStorage_Memcache extends PHPExcel_CachedObjectStorage
 			if ($success === false) {
 				//	Entry no longer exists in Memcache, so clear it from the cache array
 				parent::deleteCacheData($pCoord);
-				throw new Exception('Cell entry '.$pCoord.' no longer exists in MemCache');
+				throw new \Exception('Cell entry '.$pCoord.' no longer exists in MemCache');
 			}
 			return true;
 		}
@@ -149,7 +149,7 @@ class PHPExcel_CachedObjectStorage_Memcache extends PHPExcel_CachedObjectStorage
 			if ($obj === false) {
 				//	Entry no longer exists in Memcache, so clear it from the cache array
 				parent::deleteCacheData($pCoord);
-				throw new Exception('Cell entry '.$pCoord.' no longer exists in MemCache');
+				throw new \Exception('Cell entry '.$pCoord.' no longer exists in MemCache');
 			}
 		} else {
 			//	Return null if requested entry doesn't exist in cache
@@ -200,11 +200,11 @@ class PHPExcel_CachedObjectStorage_Memcache extends PHPExcel_CachedObjectStorage
 				if ($obj === false) {
 					//	Entry no longer exists in Memcache, so clear it from the cache array
 					parent::deleteCacheData($cellID);
-					throw new Exception('Cell entry '.$cellID.' no longer exists in MemCache');
+					throw new \Exception('Cell entry '.$cellID.' no longer exists in MemCache');
 				}
 				if (!$this->_memcache->add($newCachePrefix.$cellID.'.cache',$obj,NULL,$this->_cacheTime)) {
 					$this->__destruct();
-					throw new Exception('Failed to store cell '.$cellID.' in MemCache');
+					throw new \Exception('Failed to store cell '.$cellID.' in MemCache');
 				}
 			}
 		}
@@ -251,7 +251,7 @@ class PHPExcel_CachedObjectStorage_Memcache extends PHPExcel_CachedObjectStorage
 			//	Set a new Memcache object and connect to the Memcache server
 			$this->_memcache = new Memcache();
 			if (!$this->_memcache->addServer($memcacheServer, $memcachePort, false, 50, 5, 5, true, array($this, 'failureCallback'))) {
-				throw new Exception('Could not connect to MemCache server at '.$memcacheServer.':'.$memcachePort);
+				throw new \Exception('Could not connect to MemCache server at '.$memcacheServer.':'.$memcachePort);
 			}
 			$this->_cacheTime = $cacheTime;
 
@@ -268,7 +268,7 @@ class PHPExcel_CachedObjectStorage_Memcache extends PHPExcel_CachedObjectStorage
      * @throws	Exception
 	 */
 	public function failureCallback($host, $port) {
-		throw new Exception('memcache '.$host.':'.$port.' failed');
+		throw new \Exception('memcache '.$host.':'.$port.' failed');
 	}
 
 

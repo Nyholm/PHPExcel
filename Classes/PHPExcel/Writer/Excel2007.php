@@ -246,7 +246,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 			// Try opening the ZIP file
 			if ($objZip->open($pFilename, $zipOverWrite) !== true) {
 				if ($objZip->open($pFilename, $zipCreate) !== true) {
-					throw new Exception("Could not open " . $pFilename . " for writing.");
+					throw new \Exception("Could not open " . $pFilename . " for writing.");
 				}
 			}
 
@@ -376,18 +376,18 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 
 			// Close file
 			if ($objZip->close() === false) {
-				throw new Exception("Could not close zip file $pFilename.");
+				throw new \Exception("Could not close zip file $pFilename.");
 			}
 
 			// If a temporary file was used, copy it to the correct file stream
 			if ($originalFilename != $pFilename) {
 				if (copy($pFilename, $originalFilename) === false) {
-					throw new Exception("Could not copy temporary zip file $pFilename to $originalFilename.");
+					throw new \Exception("Could not copy temporary zip file $pFilename to $originalFilename.");
 				}
 				@unlink($pFilename);
 			}
 		} else {
-			throw new Exception("PHPExcel object unassigned.");
+			throw new \Exception("PHPExcel object unassigned.");
 		}
 	}
 
@@ -401,7 +401,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 		if ($this->_spreadSheet !== null) {
 			return $this->_spreadSheet;
 		} else {
-			throw new Exception("No PHPExcel assigned.");
+			throw new \Exception("No PHPExcel assigned.");
 		}
 	}
 
@@ -567,7 +567,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
     		if (is_dir($pDirectory)) {
     			$this->_diskCachingDirectory = $pDirectory;
     		} else {
-    			throw new Exception("Directory does not exist: $pDirectory");
+    			throw new \Exception("Directory does not exist: $pDirectory");
     		}
 		}
 		return $this;

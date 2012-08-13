@@ -533,7 +533,7 @@ class PHPExcel_Style implements PHPExcel_IComparable
 				}
 			}
 		} else {
-			throw new Exception("Invalid style array passed.");
+			throw new \Exception("Invalid style array passed.");
 		}
 		return $this;
 	}

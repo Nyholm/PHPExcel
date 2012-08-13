@@ -47,12 +47,12 @@ class PHPExcel_Writer_PDF {
 
 		$pdfLibraryName = PHPExcel_Settings::getPdfRendererName();
 		if (is_null($pdfLibraryName)) {
-			throw new Exception("PDF Rendering library has not been defined.");
+			throw new \Exception("PDF Rendering library has not been defined.");
 		}
 
 		$pdfLibraryPath = PHPExcel_Settings::getPdfRendererPath();
 		if (is_null($pdfLibraryName)) {
-			throw new Exception("PDF Rendering library path has not been defined.");
+			throw new \Exception("PDF Rendering library path has not been defined.");
 		}
 		$includePath = str_replace('\\','/',get_include_path());
 		$rendererPath = str_replace('\\','/',$pdfLibraryPath);
@@ -68,7 +68,7 @@ class PHPExcel_Writer_PDF {
     public function __call($name, $arguments)
     {
         if ($this->_renderer === NULL) {
-			throw new Exception("PDF Renderer has not been defined.");
+			throw new \Exception("PDF Renderer has not been defined.");
         }
 
         return call_user_func_array(array($this->_renderer,$name),$arguments);

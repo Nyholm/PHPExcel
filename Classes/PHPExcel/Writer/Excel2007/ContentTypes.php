@@ -214,7 +214,7 @@ class PHPExcel_Writer_Excel2007_ContentTypes extends PHPExcel_Writer_Excel2007_W
 			$image = getimagesize($pFile);
 			return image_type_to_mime_type($image[2]);
 		} else {
-			throw new Exception("File $pFile does not exist");
+			throw new \Exception("File $pFile does not exist");
 		}
 	}
 
@@ -235,7 +235,7 @@ class PHPExcel_Writer_Excel2007_ContentTypes extends PHPExcel_Writer_Excel2007_W
 			$objWriter->writeAttribute('ContentType', 	$pContentType);
 			$objWriter->endElement();
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 
@@ -256,7 +256,7 @@ class PHPExcel_Writer_Excel2007_ContentTypes extends PHPExcel_Writer_Excel2007_W
 			$objWriter->writeAttribute('ContentType', 	$pContentType);
 			$objWriter->endElement();
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 }

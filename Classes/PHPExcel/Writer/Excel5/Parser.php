@@ -565,7 +565,7 @@ class PHPExcel_Writer_Excel5_Parser
 		}
 
 		// TODO: use real error codes
-		throw new Exception("Unknown token $token");
+		throw new \Exception("Unknown token $token");
 	}
 
 	/**
@@ -599,7 +599,7 @@ class PHPExcel_Writer_Excel5_Parser
 		// chop away beggining and ending quotes
 		$string = substr($string, 1, strlen($string) - 2);
 		if (strlen($string) > 255) {
-			throw new Exception("String is too long");
+			throw new \Exception("String is too long");
 		}
 
 		return pack('C', $this->ptg['ptgStr']) . PHPExcel_Shared_String::UTF8toBIFF8UnicodeShort($string);
@@ -645,7 +645,7 @@ class PHPExcel_Writer_Excel5_Parser
 			list($cell1, $cell2) = explode(':', $range);
 		} else {
 			// TODO: use real error codes
-			throw new Exception("Unknown range separator");
+			throw new \Exception("Unknown range separator");
 		}
 
 		// Convert the cell references
@@ -661,7 +661,7 @@ class PHPExcel_Writer_Excel5_Parser
 			$ptgArea = pack("C", $this->ptg['ptgAreaA']);
 		} else {
 			// TODO: use real error codes
-			throw new Exception("Unknown class $class");
+			throw new \Exception("Unknown class $class");
 		}
 		return $ptgArea . $row1 . $row2 . $col1. $col2;
 	}
@@ -703,7 +703,7 @@ class PHPExcel_Writer_Excel5_Parser
 //		} elseif ($class == 2) {
 //			$ptgArea = pack("C", $this->ptg['ptgArea3dA']);
 //		} else {
-//			throw new Exception("Unknown class $class");
+//			throw new \Exception("Unknown class $class");
 //		}
 
 		return $ptgArea . $ext_ref . $row1 . $row2 . $col1. $col2;
@@ -733,7 +733,7 @@ class PHPExcel_Writer_Excel5_Parser
 			$ptgRef = pack("C", $this->ptg['ptgRefA']);
 //		} else {
 //			// TODO: use real error codes
-//			throw new Exception("Unknown class $class");
+//			throw new \Exception("Unknown class $class");
 //		}
 		return $ptgRef.$row.$col;
 	}
@@ -767,7 +767,7 @@ class PHPExcel_Writer_Excel5_Parser
 //		} elseif ($class == 2) {
 			$ptgRef = pack("C", $this->ptg['ptgRef3dA']);
 //		} else {
-//			throw new Exception("Unknown class $class");
+//			throw new \Exception("Unknown class $class");
 //		}
 
 		return $ptgRef . $ext_ref. $row . $col;
@@ -813,11 +813,11 @@ class PHPExcel_Writer_Excel5_Parser
 
 			$sheet1 = $this->_getSheetIndex($sheet_name1);
 			if ($sheet1 == -1) {
-				throw new Exception("Unknown sheet name $sheet_name1 in formula");
+				throw new \Exception("Unknown sheet name $sheet_name1 in formula");
 			}
 			$sheet2 = $this->_getSheetIndex($sheet_name2);
 			if ($sheet2 == -1) {
-				throw new Exception("Unknown sheet name $sheet_name2 in formula");
+				throw new \Exception("Unknown sheet name $sheet_name2 in formula");
 			}
 
 			// Reverse max and min sheet numbers if necessary
@@ -827,7 +827,7 @@ class PHPExcel_Writer_Excel5_Parser
 		} else { // Single sheet name only.
 			$sheet1 = $this->_getSheetIndex($ext_ref);
 			if ($sheet1 == -1) {
-				throw new Exception("Unknown sheet name $ext_ref in formula");
+				throw new \Exception("Unknown sheet name $ext_ref in formula");
 			}
 			$sheet2 = $sheet1;
 		}
@@ -859,11 +859,11 @@ class PHPExcel_Writer_Excel5_Parser
 
 			$sheet1 = $this->_getSheetIndex($sheet_name1);
 			if ($sheet1 == -1) {
-				throw new Exception("Unknown sheet name $sheet_name1 in formula");
+				throw new \Exception("Unknown sheet name $sheet_name1 in formula");
 			}
 			$sheet2 = $this->_getSheetIndex($sheet_name2);
 			if ($sheet2 == -1) {
-				throw new Exception("Unknown sheet name $sheet_name2 in formula");
+				throw new \Exception("Unknown sheet name $sheet_name2 in formula");
 			}
 
 			// Reverse max and min sheet numbers if necessary
@@ -873,7 +873,7 @@ class PHPExcel_Writer_Excel5_Parser
 		} else { // Single sheet name only.
 			$sheet1 = $this->_getSheetIndex($ext_ref);
 			if ($sheet1 == -1) {
-				throw new Exception("Unknown sheet name $ext_ref in formula");
+				throw new \Exception("Unknown sheet name $ext_ref in formula");
 			}
 			$sheet2 = $sheet1;
 		}
@@ -943,11 +943,11 @@ class PHPExcel_Writer_Excel5_Parser
 		$cell = strtoupper($cell);
 		list($row, $col, $row_rel, $col_rel) = $this->_cellToRowcol($cell);
 		if ($col >= 256) {
-			throw new Exception("Column in: $cell greater than 255");
+			throw new \Exception("Column in: $cell greater than 255");
 		}
 		// FIXME: change for BIFF8
 		if ($row >= 16384) {
-			throw new Exception("Row in: $cell greater than 16384 ");
+			throw new \Exception("Row in: $cell greater than 16384 ");
 		}
 
 		// Set the high bits to indicate if row or col are relative.
@@ -985,7 +985,7 @@ class PHPExcel_Writer_Excel5_Parser
 
 		// FIXME: this changes for BIFF8
 		if (($row1 >= 16384) or ($row2 >= 16384)) {
-			throw new Exception("Row in: $range greater than 16384 ");
+			throw new \Exception("Row in: $range greater than 16384 ");
 		}
 
 		// Set the high bits to indicate if rows are relative.
@@ -1374,7 +1374,7 @@ class PHPExcel_Writer_Excel5_Parser
 			$this->_advance();         // eat the "("
 			$result = $this->_parenthesizedExpression();
 			if ($this->_current_token != ")") {
-				throw new Exception("')' token expected.");
+				throw new \Exception("')' token expected.");
 			}
 			$this->_advance();         // eat the ")"
 			return $result;
@@ -1444,7 +1444,7 @@ class PHPExcel_Writer_Excel5_Parser
 			$result = $this->_func();
 			return $result;
 		}
-		throw new Exception("Syntax error: ".$this->_current_token.
+		throw new \Exception("Syntax error: ".$this->_current_token.
 								 ", lookahead: ".$this->_lookahead.
 								 ", current char: ".$this->_current_char);
 	}
@@ -1471,7 +1471,7 @@ class PHPExcel_Writer_Excel5_Parser
 				{
 					$this->_advance();  // eat the "," or ";"
 				} else {
-					throw new Exception("Syntax error: comma expected in ".
+					throw new \Exception("Syntax error: comma expected in ".
 									  "function $function, arg #{$num_args}");
 				}
 				$result2 = $this->_condition();
@@ -1483,12 +1483,12 @@ class PHPExcel_Writer_Excel5_Parser
 			++$num_args;
 		}
 		if (!isset($this->_functions[$function])) {
-			throw new Exception("Function $function() doesn't exist");
+			throw new \Exception("Function $function() doesn't exist");
 		}
 		$args = $this->_functions[$function][1];
 		// If fixed number of args eg. TIME($i,$j,$k). Check that the number of args is valid.
 		if (($args >= 0) and ($args != $num_args)) {
-			throw new Exception("Incorrect number of arguments in function $function() ");
+			throw new \Exception("Incorrect number of arguments in function $function() ");
 		}
 
 		$result = $this->_createTree($function, $result, $num_args);

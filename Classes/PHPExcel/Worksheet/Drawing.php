@@ -112,7 +112,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
 	    			list($this->_width, $this->_height) = getimagesize($pValue);
 	    		}
 	    	} else {
-	    		throw new Exception("File $pValue not found!");
+	    		throw new \Exception("File $pValue not found!");
 	    	}
     	} else {
     		$this->_path = $pValue;

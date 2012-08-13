@@ -576,7 +576,7 @@ class PHPExcel_ReferenceHelper
 			// Recreate range string
 			return PHPExcel_Cell::buildRange($range);
 		} else {
-			throw new Exception("Only cell ranges may be passed to this method.");
+			throw new \Exception("Only cell ranges may be passed to this method.");
 		}
 	}
 
@@ -618,7 +618,7 @@ class PHPExcel_ReferenceHelper
 			// Return new reference
 			return $newColumn . $newRow;
 		} else {
-			throw new Exception("Only single cell references may be passed to this method.");
+			throw new \Exception("Only single cell references may be passed to this method.");
 		}
 	}
 
@@ -628,6 +628,6 @@ class PHPExcel_ReferenceHelper
 	 * @throws	Exception
 	 */
 	public final function __clone() {
-		throw new Exception("Cloning a Singleton is not allowed!");
+		throw new \Exception("Cloning a Singleton is not allowed!");
 	}
 }

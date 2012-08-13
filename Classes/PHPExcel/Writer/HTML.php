@@ -164,7 +164,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 		// Open file
 		$fileHandle = fopen($pFilename, 'wb+');
 		if ($fileHandle === false) {
-			throw new Exception("Could not open file $pFilename for writing.");
+			throw new \Exception("Could not open file $pFilename for writing.");
 		}
 
 		// Write headers
@@ -306,7 +306,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	public function generateHTMLHeader($pIncludeStyles = false) {
 		// PHPExcel object known?
 		if (is_null($this->_phpExcel)) {
-			throw new Exception('Internal PHPExcel object not set to an instance of an object.');
+			throw new \Exception('Internal PHPExcel object not set to an instance of an object.');
 		}
 
 		// Construct HTML
@@ -357,7 +357,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	public function generateSheetData() {
 		// PHPExcel object known?
 		if (is_null($this->_phpExcel)) {
-			throw new Exception('Internal PHPExcel object not set to an instance of an object.');
+			throw new \Exception('Internal PHPExcel object not set to an instance of an object.');
 		}
 
 		// Ensure that Spans have been calculated?
@@ -477,7 +477,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	{
 		// PHPExcel object known?
 		if (is_null($this->_phpExcel)) {
-			throw new Exception('Internal PHPExcel object not set to an instance of an object.');
+			throw new \Exception('Internal PHPExcel object not set to an instance of an object.');
 		}
 
 		// Fetch sheets
@@ -563,7 +563,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	public function generateStyles($generateSurroundingHTML = true) {
 		// PHPExcel object known?
 		if (is_null($this->_phpExcel)) {
-			throw new Exception('Internal PHPExcel object not set to an instance of an object.');
+			throw new \Exception('Internal PHPExcel object not set to an instance of an object.');
 		}
 
 		// Build CSS
@@ -604,7 +604,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 	public function buildCSS($generateSurroundingHTML = true) {
 		// PHPExcel object known?
 		if (is_null($this->_phpExcel)) {
-			throw new Exception('Internal PHPExcel object not set to an instance of an object.');
+			throw new \Exception('Internal PHPExcel object not set to an instance of an object.');
 		}
 
 		// Cached?
@@ -1172,7 +1172,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 			// Return
 			return $html;
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 

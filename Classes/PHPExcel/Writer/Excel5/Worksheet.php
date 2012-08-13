@@ -2580,7 +2580,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		// Open file.
 		$bmp_fd = @fopen($bitmap,"rb");
 		if (!$bmp_fd) {
-			throw new Exception("Couldn't import $bitmap");
+			throw new \Exception("Couldn't import $bitmap");
 		}
 
 		// Slurp the file into a string.
@@ -2588,13 +2588,13 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 
 		// Check that the file is big enough to be a bitmap.
 		if (strlen($data) <= 0x36) {
-			throw new Exception("$bitmap doesn't contain enough data.\n");
+			throw new \Exception("$bitmap doesn't contain enough data.\n");
 		}
 
 		// The first 2 bytes are used to identify the bitmap.
 		$identity = unpack("A2ident", $data);
 		if ($identity['ident'] != "BM") {
-			throw new Exception("$bitmap doesn't appear to be a valid bitmap image.\n");
+			throw new \Exception("$bitmap doesn't appear to be a valid bitmap image.\n");
 		}
 
 		// Remove bitmap data: ID.
@@ -2618,20 +2618,20 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		$height = $width_and_height[2];
 		$data   = substr($data, 8);
 		if ($width > 0xFFFF) {
-			throw new Exception("$bitmap: largest image width supported is 65k.\n");
+			throw new \Exception("$bitmap: largest image width supported is 65k.\n");
 		}
 		if ($height > 0xFFFF) {
-			throw new Exception("$bitmap: largest image height supported is 65k.\n");
+			throw new \Exception("$bitmap: largest image height supported is 65k.\n");
 		}
 
 		// Read and remove the bitmap planes and bpp data. Verify them.
 		$planes_and_bitcount = unpack("v2", substr($data, 0, 4));
 		$data = substr($data, 4);
 		if ($planes_and_bitcount[2] != 24) { // Bitcount
-			throw new Exception("$bitmap isn't a 24bit true color bitmap.\n");
+			throw new \Exception("$bitmap isn't a 24bit true color bitmap.\n");
 		}
 		if ($planes_and_bitcount[1] != 1) {
-			throw new Exception("$bitmap: only 1 plane supported in bitmap image.\n");
+			throw new \Exception("$bitmap: only 1 plane supported in bitmap image.\n");
 		}
 
 		// Read and remove the bitmap compression. Verify compression.
@@ -2640,7 +2640,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 
 		//$compression = 0;
 		if ($compression['comp'] != 0) {
-			throw new Exception("$bitmap: compression not supported in bitmap image.\n");
+			throw new \Exception("$bitmap: compression not supported in bitmap image.\n");
 		}
 
 		// Remove bitmap data: data size, hres, vres, colours, imp. colours.
@@ -2907,7 +2907,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 				try {
 					$formula2 = $dataValidation->getFormula2();
 					if ($formula2 === '') {
-						throw new Exception('No formula2');
+						throw new \Exception('No formula2');
 					}
 					$this->_parser->parse($formula2);
 					$formula2 = $this->_parser->toReversePolish();

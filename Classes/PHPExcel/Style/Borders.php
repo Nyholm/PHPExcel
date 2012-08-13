@@ -331,7 +331,7 @@ class PHPExcel_Style_Borders implements PHPExcel_IComparable
 				}
 			}
 		} else {
-			throw new Exception("Invalid style array passed.");
+			throw new \Exception("Invalid style array passed.");
 		}
 		return $this;
 	}
@@ -389,7 +389,7 @@ class PHPExcel_Style_Borders implements PHPExcel_IComparable
      */
     public function getAllBorders() {
 		if (!$this->_isSupervisor) {
-			throw new Exception('Can only get pseudo-border for supervisor.');
+			throw new \Exception('Can only get pseudo-border for supervisor.');
 		}
 		return $this->_allBorders;
     }
@@ -402,7 +402,7 @@ class PHPExcel_Style_Borders implements PHPExcel_IComparable
      */
     public function getOutline() {
 		if (!$this->_isSupervisor) {
-			throw new Exception('Can only get pseudo-border for supervisor.');
+			throw new \Exception('Can only get pseudo-border for supervisor.');
 		}
     	return $this->_outline;
     }
@@ -415,7 +415,7 @@ class PHPExcel_Style_Borders implements PHPExcel_IComparable
      */
     public function getInside() {
 		if (!$this->_isSupervisor) {
-			throw new Exception('Can only get pseudo-border for supervisor.');
+			throw new \Exception('Can only get pseudo-border for supervisor.');
 		}
     	return $this->_inside;
     }
@@ -428,7 +428,7 @@ class PHPExcel_Style_Borders implements PHPExcel_IComparable
      */
     public function getVertical() {
 		if (!$this->_isSupervisor) {
-			throw new Exception('Can only get pseudo-border for supervisor.');
+			throw new \Exception('Can only get pseudo-border for supervisor.');
 		}
 		return $this->_vertical;
     }
@@ -441,7 +441,7 @@ class PHPExcel_Style_Borders implements PHPExcel_IComparable
      */
     public function getHorizontal() {
 		if (!$this->_isSupervisor) {
-			throw new Exception('Can only get pseudo-border for supervisor.');
+			throw new \Exception('Can only get pseudo-border for supervisor.');
 		}
 		return $this->_horizontal;
     }

@@ -77,7 +77,7 @@ class PHPExcel_Shared_OLERead {
 	{
 		// Check if file exists and is readable
 		if(!is_readable($sFileName)) {
-			throw new Exception("Could not open " . $sFileName . " for reading! File does not exist, or it is not readable.");
+			throw new \Exception("Could not open " . $sFileName . " for reading! File does not exist, or it is not readable.");
 		}
 
 		// Get the file data
@@ -85,7 +85,7 @@ class PHPExcel_Shared_OLERead {
 
 		// Check OLE identifier
 		if (substr($this->data, 0, 8) != self::IDENTIFIER_OLE) {
-			throw new Exception('The filename ' . $sFileName . ' is not recognised as an OLE file');
+			throw new \Exception('The filename ' . $sFileName . ' is not recognised as an OLE file');
 		}
 
 		// Total number of sectors used for the SAT

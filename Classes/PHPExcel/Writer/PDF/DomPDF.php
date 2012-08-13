@@ -32,7 +32,7 @@ $pdfRendererClassFile = PHPExcel_Settings::getPdfRendererPath() . '/dompdf_confi
 if (file_exists($pdfRendererClassFile)) {
 	require_once $pdfRendererClassFile;
 } else {
-	throw new Exception('Unable to load PDF Rendering library');
+	throw new \Exception('Unable to load PDF Rendering library');
 }
 
 /**
@@ -68,7 +68,7 @@ class PHPExcel_Writer_PDF_DomPDF extends PHPExcel_Writer_PDF_Core implements PHP
 		// Open file
 		$fileHandle = fopen($pFilename, 'w');
 		if ($fileHandle === false) {
-			throw new Exception("Could not open file $pFilename for writing.");
+			throw new \Exception("Could not open file $pFilename for writing.");
 		}
 
 		// Set PDF

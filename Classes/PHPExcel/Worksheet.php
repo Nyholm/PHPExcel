@@ -354,10 +354,10 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		$this->_sheetView			= new PHPExcel_Worksheet_SheetView();
 
 		// Drawing collection
-		$this->_drawingCollection	= new ArrayObject();
+		$this->_drawingCollection	= new \ArrayObject();
 
     	// Chart collection
-    	$this->_chartCollection 	= new ArrayObject();
+    	$this->_chartCollection 	= new \ArrayObject();
 
 		// Protection
 		$this->_protection			= new PHPExcel_Worksheet_Protection();
@@ -416,12 +416,12 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 	{
 		// Some of the printable ASCII characters are invalid:  * : / \ ? [ ]
 		if (str_replace(self::$_invalidCharacters, '', $pValue) !== $pValue) {
-			throw new Exception('Invalid character found in sheet title');
+			throw new \Exception('Invalid character found in sheet title');
 		}
 
 		// Maximum 31 characters allowed for sheet title
 		if (PHPExcel_Shared_String::CountCharacters($pValue) > 31) {
-			throw new Exception('Maximum 31 characters allowed in sheet title.');
+			throw new \Exception('Maximum 31 characters allowed in sheet title.');
 		}
 
 		return $pValue;
@@ -1112,9 +1112,9 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		$pCoordinate = strtoupper($pCoordinate);
 
 		if (strpos($pCoordinate,':') !== false || strpos($pCoordinate,',') !== false) {
-			throw new Exception('Cell coordinate can not be a range of cells.');
+			throw new \Exception('Cell coordinate can not be a range of cells.');
 		} elseif (strpos($pCoordinate,'$') !== false) {
-			throw new Exception('Cell coordinate must not be absolute.');
+			throw new \Exception('Cell coordinate must not be absolute.');
 		} else {
 			// Create new cell object
 
@@ -1200,7 +1200,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 					if (!$namedRange->getLocalOnly()) {
 						return $namedRange->getWorksheet()->cellExists($pCoordinate);
 					} else {
-						throw new Exception('Named range ' . $namedRange->getName() . ' is not accessible from within sheet ' . $this->getTitle());
+						throw new \Exception('Named range ' . $namedRange->getName() . ' is not accessible from within sheet ' . $this->getTitle());
 					}
 				}
 			}
@@ -1210,9 +1210,9 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		$pCoordinate = strtoupper($pCoordinate);
 
 		if (strpos($pCoordinate,':') !== false || strpos($pCoordinate,',') !== false) {
-			throw new Exception('Cell coordinate can not be a range of cells.');
+			throw new \Exception('Cell coordinate can not be a range of cells.');
 		} elseif (strpos($pCoordinate,'$') !== false) {
-			throw new Exception('Cell coordinate must not be absolute.');
+			throw new \Exception('Cell coordinate must not be absolute.');
 		} else {
 			// Coordinates
 			$aCoordinates = PHPExcel_Cell::coordinateFromString($pCoordinate);
@@ -1515,7 +1515,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 	{
 		foreach($pCellStyle as $cellStyle) {
 			if (!is_a($cellStyle,'PHPExcel_Style_Conditional')) {
-				throw new Exception('Style is not a conditional style');
+				throw new \Exception('Style is not a conditional style');
 			}
 		}
 
@@ -1593,7 +1593,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		if ($pCell != '') {
 			$this->_breaks[$pCell] = $pBreak;
 		} else {
-			throw new Exception('No cell coordinate specified.');
+			throw new \Exception('No cell coordinate specified.');
 		}
 
 		return $this;
@@ -1656,7 +1656,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			}
 
 		} else {
-			throw new Exception('Merge must be set on a range of cells.');
+			throw new \Exception('Merge must be set on a range of cells.');
 		}
 
 		return $this;
@@ -1694,10 +1694,10 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			if (isset($this->_mergeCells[$pRange])) {
 				unset($this->_mergeCells[$pRange]);
 			} else {
-				throw new Exception('Cell range ' . $pRange . ' not known as merged.');
+				throw new \Exception('Cell range ' . $pRange . ' not known as merged.');
 			}
 		} else {
-			throw new Exception('Merge can only be removed from a range of cells.');
+			throw new \Exception('Merge can only be removed from a range of cells.');
 		}
 
 		return $this;
@@ -1797,7 +1797,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		if (isset($this->_protectedCells[$pRange])) {
 			unset($this->_protectedCells[$pRange]);
 		} else {
-			throw new Exception('Cell range ' . $pRange . ' not known as protected.');
+			throw new \Exception('Cell range ' . $pRange . ' not known as protected.');
 		}
 		return $this;
 	}
@@ -1913,7 +1913,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		if (strpos($pCell,':') === false && strpos($pCell,',') === false) {
 			$this->_freezePane = $pCell;
 		} else {
-			throw new Exception('Freeze pane can not be set on a range of cells.');
+			throw new \Exception('Freeze pane can not be set on a range of cells.');
 		}
 		return $this;
 	}
@@ -1954,7 +1954,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			$objReferenceHelper = PHPExcel_ReferenceHelper::getInstance();
 			$objReferenceHelper->insertNewBefore('A' . $pBefore, 0, $pNumRows, $this);
 		} else {
-			throw new Exception("Rows can only be inserted before at least row 1.");
+			throw new \Exception("Rows can only be inserted before at least row 1.");
 		}
 		return $this;
 	}
@@ -1972,7 +1972,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			$objReferenceHelper = PHPExcel_ReferenceHelper::getInstance();
 			$objReferenceHelper->insertNewBefore($pBefore . '1', $pNumCols, 0, $this);
 		} else {
-			throw new Exception("Column references should not be numeric.");
+			throw new \Exception("Column references should not be numeric.");
 		}
 		return $this;
 	}
@@ -1989,7 +1989,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		if ($pBefore >= 0) {
 			return $this->insertNewColumnBefore(PHPExcel_Cell::stringFromColumnIndex($pBefore), $pNumCols);
 		} else {
-			throw new Exception("Columns can only be inserted before at least column A (0).");
+			throw new \Exception("Columns can only be inserted before at least column A (0).");
 		}
 	}
 
@@ -2006,7 +2006,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			$objReferenceHelper = PHPExcel_ReferenceHelper::getInstance();
 			$objReferenceHelper->insertNewBefore('A' . ($pRow + $pNumRows), 0, -$pNumRows, $this);
 		} else {
-			throw new Exception("Rows to be deleted should at least start from row 1.");
+			throw new \Exception("Rows to be deleted should at least start from row 1.");
 		}
 		return $this;
 	}
@@ -2025,7 +2025,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			$objReferenceHelper = PHPExcel_ReferenceHelper::getInstance();
 			$objReferenceHelper->insertNewBefore($pColumn . '1', -$pNumCols, 0, $this);
 		} else {
-			throw new Exception("Column references should not be numeric.");
+			throw new \Exception("Column references should not be numeric.");
 		}
 		return $this;
 	}
@@ -2042,7 +2042,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		if ($pColumn >= 0) {
 			return $this->removeColumn(PHPExcel_Cell::stringFromColumnIndex($pColumn), $pNumCols);
 		} else {
-			throw new Exception("Columns to be deleted should at least start from column 0");
+			throw new \Exception("Columns to be deleted should at least start from column 0");
 		}
 	}
 
@@ -2182,11 +2182,11 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 		$pCellCoordinate = strtoupper($pCellCoordinate);
 
 		if (strpos($pCellCoordinate,':') !== false || strpos($pCellCoordinate,',') !== false) {
-			throw new Exception('Cell coordinate string can not be a range of cells.');
+			throw new \Exception('Cell coordinate string can not be a range of cells.');
 		} else if (strpos($pCellCoordinate,'$') !== false) {
-			throw new Exception('Cell coordinate string must not be absolute.');
+			throw new \Exception('Cell coordinate string must not be absolute.');
 		} else if ($pCellCoordinate == '') {
-			throw new Exception('Cell coordinate can not be zero-length string.');
+			throw new \Exception('Cell coordinate can not be zero-length string.');
 		} else {
 			// Check if we already have a comment for this cell.
 			// If not, create a new comment.
@@ -2361,7 +2361,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 				++$startRow;
 			}
 		} else {
-			throw new Exception("Parameter \$source should be an array.");
+			throw new \Exception("Parameter \$source should be an array.");
 		}
 		return $this;
 	}
@@ -2456,7 +2456,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 												$nullValue, $calculateFormulas, $formatData, $returnCellRef);
 		}
 
-		throw new Exception('Named Range '.$pNamedRange.' does not exist.');
+		throw new \Exception('Named Range '.$pNamedRange.' does not exist.');
 	}
 
 

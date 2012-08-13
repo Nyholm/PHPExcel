@@ -82,7 +82,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 	        // Return
 	        return $aStringTable;
 		} else {
-			throw new Exception("Invalid PHPExcel_Worksheet object passed.");
+			throw new \Exception("Invalid PHPExcel_Worksheet object passed.");
 		}
 	}
 
@@ -136,7 +136,7 @@ class PHPExcel_Writer_Excel2007_StringTable extends PHPExcel_Writer_Excel2007_Wr
 			// Return
 			return $objWriter->getData();
 		} else {
-			throw new Exception("Invalid string table array passed.");
+			throw new \Exception("Invalid string table array passed.");
 		}
 	}
 

@@ -127,7 +127,7 @@ class PHPExcel_Reader_HTML implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Read sample data (first 2 KB will do)
@@ -440,7 +440,7 @@ class PHPExcel_Reader_HTML implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Create new PHPExcel
@@ -454,7 +454,7 @@ class PHPExcel_Reader_HTML implements PHPExcel_Reader_IReader
 		//	Load the HTML file into the DOM object
 		$loaded = $dom->loadHTMLFile($pFilename);
 		if ($loaded === false) {
-			throw new Exception('Failed to load ',$pFilename,' as a DOM Document');
+			throw new \Exception('Failed to load ',$pFilename,' as a DOM Document');
 		}
 
 		//	Discard white space

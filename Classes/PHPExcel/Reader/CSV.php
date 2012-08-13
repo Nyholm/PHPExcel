@@ -131,7 +131,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		return true;
@@ -197,13 +197,13 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Open file
 		$fileHandle = fopen($pFilename, 'r');
 		if ($fileHandle === false) {
-			throw new Exception("Could not open file " . $pFilename . " for reading.");
+			throw new \Exception("Could not open file " . $pFilename . " for reading.");
 		}
 
 		// Skip BOM, if any
@@ -288,7 +288,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Create new PHPExcel
@@ -303,7 +303,7 @@ class PHPExcel_Reader_CSV implements PHPExcel_Reader_IReader
 		// Open file
 		$fileHandle = fopen($pFilename, 'r');
 		if ($fileHandle === false) {
-			throw new Exception("Could not open file $pFilename for reading.");
+			throw new \Exception("Could not open file $pFilename for reading.");
 		}
 
 		// Skip BOM, if any

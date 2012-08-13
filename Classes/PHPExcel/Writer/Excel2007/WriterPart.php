@@ -63,7 +63,7 @@ abstract class PHPExcel_Writer_Excel2007_WriterPart
 		if (!is_null($this->_parentWriter)) {
 			return $this->_parentWriter;
 		} else {
-			throw new Exception("No parent PHPExcel_Writer_IWriter assigned.");
+			throw new \Exception("No parent PHPExcel_Writer_IWriter assigned.");
 		}
 	}
 

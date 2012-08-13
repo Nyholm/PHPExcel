@@ -655,7 +655,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 			}
 			$chartType = array_unique($chartTypes);
 			if (count($chartTypes) == 0) {
-				throw new Exception('Chart is not yet implemented');
+				throw new \Exception('Chart is not yet implemented');
 			}
 		}
 

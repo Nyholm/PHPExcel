@@ -100,7 +100,7 @@ class PHPExcel_Calculation_FormulaParser {
     {
     	// Check parameters
     	if (is_null($pFormula)) {
-    		throw new Exception("Invalid parameter passed: formula");
+    		throw new \Exception("Invalid parameter passed: formula");
     	}
 
     	// Initialise values
@@ -129,7 +129,7 @@ class PHPExcel_Calculation_FormulaParser {
     	if (isset($this->_tokens[$pId])) {
     		return $this->_tokens[$pId];
     	} else {
-    		throw new Exception("Token with id $pId does not exist.");
+    		throw new \Exception("Token with id $pId does not exist.");
     	}
     }
 

@@ -197,7 +197,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Read sample data (first 2 KB will do)
@@ -234,10 +234,10 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 		if (!$this->canRead($pFilename)) {
-			throw new Exception($pFilename . " is an Invalid Spreadsheet file.");
+			throw new \Exception($pFilename . " is an Invalid Spreadsheet file.");
 		}
 
 		$worksheetNames = array();
@@ -265,7 +265,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetInfo = array();
@@ -422,17 +422,17 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 				PHPExcel_Style_Alignment::HORIZONTAL_JUSTIFY
 			);
 
-		$timezoneObj = new DateTimeZone('Europe/London');
-		$GMT = new DateTimeZone('UTC');
+		$timezoneObj = new \DateTimeZone('Europe/London');
+		$GMT = new \DateTimeZone('UTC');
 
 
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		if (!$this->canRead($pFilename)) {
-			throw new Exception($pFilename . " is an Invalid Spreadsheet file.");
+			throw new \Exception($pFilename . " is an Invalid Spreadsheet file.");
 		}
 
 		$xml = simplexml_load_file($pFilename);

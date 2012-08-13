@@ -159,7 +159,7 @@ class PHPExcel_RichText implements PHPExcel_IComparable
     	if (is_array($pElements)) {
     		$this->_richTextElements = $pElements;
     	} else {
-    		throw new Exception("Invalid PHPExcel_RichText_ITextElement[] array passed.");
+    		throw new \Exception("Invalid PHPExcel_RichText_ITextElement[] array passed.");
     	}
     	return $this;
     }

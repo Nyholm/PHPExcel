@@ -424,7 +424,7 @@ class PHPExcel_Worksheet_HeaderFooter
      */
     public function setImages($images) {
     	if (!is_array($images)) {
-    		throw new Exception('Invalid parameter!');
+    		throw new \Exception('Invalid parameter!');
     	}
 
     	$this->_headerFooterImages = $images;

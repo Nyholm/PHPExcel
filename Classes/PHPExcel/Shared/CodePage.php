@@ -49,7 +49,7 @@ class PHPExcel_Shared_CodePage
 		switch ($codePage) {
 			case 367:	return 'ASCII';				break;	//	ASCII
 			case 437:	return 'CP437';				break;	//	OEM US
-			case 720:	throw new Exception('Code page 720 not supported.');
+			case 720:	throw new \Exception('Code page 720 not supported.');
 													break;	//	OEM Arabic
 			case 737:	return 'CP737';				break;	//	OEM Greek
 			case 775:	return 'CP775';				break;	//	OEM Baltic
@@ -90,13 +90,13 @@ class PHPExcel_Shared_CodePage
 			case 10079: return 'MACICELAND';		break;	//	Macintosh Icelandic
 			case 10081: return 'MACTURKISH';		break;	//	Macintosh Turkish
 			case 32768:	return 'MAC';				break;	//	Apple Roman
-			case 32769:	throw new Exception('Code page 32769 not supported.');
+			case 32769:	throw new \Exception('Code page 32769 not supported.');
 													break;	//	ANSI Latin I (BIFF2-BIFF3)
 			case 65000:	return 'UTF-7';				break;	//	Unicode (UTF-7)
 			case 65001:	return 'UTF-8';				break;	//	Unicode (UTF-8)
 		}
 
-		throw new Exception('Unknown codepage: ' . $codePage);
+		throw new \Exception('Unknown codepage: ' . $codePage);
 	}
 
 }

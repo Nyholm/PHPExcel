@@ -84,7 +84,7 @@ class PHPExcel_NamedRange
     {
     	// Validate data
     	if (($pName === NULL) || ($pWorksheet === NULL) || ($pRange === NULL)) {
-    		throw new Exception('Parameters can not be null.');
+    		throw new \Exception('Parameters can not be null.');
     	}
 
     	// Set local members

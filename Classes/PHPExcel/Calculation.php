@@ -1740,7 +1740,7 @@ class PHPExcel_Calculation {
 	 * @throws	Exception
 	 */
 	public final function __clone() {
-		throw new Exception ('Cloning a Singleton is not allowed!');
+		throw new \Exception ('Cloning a Singleton is not allowed!');
 	}	//	function __clone()
 
 
@@ -2127,7 +2127,7 @@ class PHPExcel_Calculation {
 		try {
 			return $this->calculateCellValue($pCell);
 		} catch (Exception $e) {
-			throw(new Exception($e->getMessage()));
+			throw(new \Exception($e->getMessage()));
 		}
 	}	//	function calculate()
 
@@ -2164,7 +2164,7 @@ class PHPExcel_Calculation {
 		try {
 			$result = self::_unwrapResult($this->_calculateFormulaValue($pCell->getValue(), $pCell->getCoordinate(), $pCell));
 		} catch (Exception $e) {
-			throw(new Exception($e->getMessage()));
+			throw(new \Exception($e->getMessage()));
 		}
 
 		if ((is_array($result)) && (self::$returnArrayAsType != self::RETURN_ARRAY_AS_ARRAY)) {
@@ -2238,7 +2238,7 @@ class PHPExcel_Calculation {
 		try {
 			$result = self::_unwrapResult($this->_calculateFormulaValue($formula, $cellID, $pCell));
 		} catch (Exception $e) {
-			throw(new Exception($e->getMessage()));
+			throw(new \Exception($e->getMessage()));
 		}
 
 		//	Reset calculation cacheing to its previous state
@@ -3596,7 +3596,7 @@ class PHPExcel_Calculation {
 	protected function _raiseFormulaError($errorMessage) {
 		$this->formulaError = $errorMessage;
 		$this->debugLogStack = array();
-		if (!$this->suppressFormulaErrors) throw new Exception($errorMessage);
+		if (!$this->suppressFormulaErrors) throw new \Exception($errorMessage);
 		trigger_error($errorMessage, E_USER_ERROR);
 	}	//	function _raiseFormulaError()
 

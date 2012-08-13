@@ -875,7 +875,7 @@ class PHPExcel_Cell
 	 */
 	public static function setValueBinder(PHPExcel_Cell_IValueBinder $binder = NULL) {
 		if ($binder === NULL) {
-			throw new Exception("A PHPExcel_Cell_IValueBinder is required for PHPExcel to function correctly.");
+			throw new \Exception("A PHPExcel_Cell_IValueBinder is required for PHPExcel to function correctly.");
 		}
 
 		self::$_valueBinder = $binder;

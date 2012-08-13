@@ -233,12 +233,12 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Check if zip class exists
 		if (!class_exists('ZipArchive')) {
-			throw new Exception("ZipArchive library is not enabled");
+			throw new \Exception("ZipArchive library is not enabled");
 		}
 
 		$xl = false;
@@ -276,7 +276,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetInfo = array();
@@ -446,7 +446,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		$worksheetNames = array();
@@ -485,7 +485,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	{
 		// Check if file exists
 		if (!file_exists($pFilename)) {
-			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
+			throw new \Exception("Could not open " . $pFilename . " for reading! File does not exist.");
 		}
 
 		// Initialisations

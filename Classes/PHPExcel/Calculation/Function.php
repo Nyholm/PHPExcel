@@ -85,7 +85,7 @@ class PHPExcel_Calculation_Function {
     		$this->_excelName 		= $pExcelName;
     		$this->_phpExcelName 	= $pPHPExcelName;
     	} else {
-    		throw new Exception("Invalid parameters passed.");
+    		throw new \Exception("Invalid parameters passed.");
     	}
     }
 
@@ -108,7 +108,7 @@ class PHPExcel_Calculation_Function {
     	if (!is_null($value)) {
     		$this->_category = $value;
     	} else {
-    		throw new Exception("Invalid parameter passed.");
+    		throw new \Exception("Invalid parameter passed.");
     	}
     }
 

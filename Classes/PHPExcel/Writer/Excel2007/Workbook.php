@@ -252,7 +252,7 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 			$objWriter->writeAttribute('r:id', 		'rId' . $pRelId);
 			$objWriter->endElement();
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 

@@ -310,7 +310,7 @@ class PHPExcel_Worksheet_HeaderFooterDrawing extends PHPExcel_Worksheet_Drawing 
 	    			list($this->_width, $this->_height) = getimagesize($pValue);
 	    		}
 	    	} else {
-	    		throw new Exception("File $pValue not found!");
+	    		throw new \Exception("File $pValue not found!");
 	    	}
     	} else {
     		$this->_path = $pValue;

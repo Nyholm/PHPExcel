@@ -103,7 +103,7 @@ class PHPExcel_IOFactory
 		if (is_array($value)) {
 			self::$_searchLocations = $value;
 		} else {
-			throw new Exception('Invalid parameter passed.');
+			throw new \Exception('Invalid parameter passed.');
 		}
 	}	//	function setSearchLocations()
 
@@ -147,7 +147,7 @@ class PHPExcel_IOFactory
 		}
 
 		// Nothing found...
-		throw new Exception("No $searchType found for type $writerType");
+		throw new \Exception("No $searchType found for type $writerType");
 	}	//	function createWriter()
 
 	/**
@@ -176,7 +176,7 @@ class PHPExcel_IOFactory
 		}
 
 		// Nothing found...
-		throw new Exception("No $searchType found for type $readerType");
+		throw new \Exception("No $searchType found for type $readerType");
 	}	//	function createReader()
 
 	/**
@@ -282,6 +282,6 @@ class PHPExcel_IOFactory
 			}
 		}
 
-    	throw new Exception('Unable to identify a reader for this file');
+    	throw new \Exception('Unable to identify a reader for this file');
 	}	//	function createReaderForFile()
 }

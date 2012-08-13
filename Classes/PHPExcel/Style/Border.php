@@ -150,7 +150,7 @@ class PHPExcel_Style_Border implements PHPExcel_IComparable
 			case '_inside':
 			case '_outline':
 			case '_vertical':
-				throw new Exception('Cannot get shared component for a pseudo-border.');
+				throw new \Exception('Cannot get shared component for a pseudo-border.');
 				break;
 
 			case '_bottom':
@@ -291,7 +291,7 @@ class PHPExcel_Style_Border implements PHPExcel_IComparable
 				}
 			}
 		} else {
-			throw new Exception("Invalid style array passed.");
+			throw new \Exception("Invalid style array passed.");
 		}
 		return $this;
 	}

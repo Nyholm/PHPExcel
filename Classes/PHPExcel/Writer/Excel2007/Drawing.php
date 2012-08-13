@@ -376,7 +376,7 @@ class PHPExcel_Writer_Excel2007_Drawing extends PHPExcel_Writer_Excel2007_Writer
 
 			$objWriter->endElement();
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 

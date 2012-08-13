@@ -106,7 +106,7 @@ class PHPExcel_Worksheet_SheetView
 		if (($pValue >= 1) || is_null($pValue)) {
 			$this->_zoomScale = $pValue;
 		} else {
-			throw new Exception("Scale must be greater than or equal to 1.");
+			throw new \Exception("Scale must be greater than or equal to 1.");
 		}
 		return $this;
 	}
@@ -133,7 +133,7 @@ class PHPExcel_Worksheet_SheetView
 		if (($pValue >= 1) || is_null($pValue)) {
 			$this->_zoomScaleNormal = $pValue;
 		} else {
-			throw new Exception("Scale must be greater than or equal to 1.");
+			throw new \Exception("Scale must be greater than or equal to 1.");
 		}
 		return $this;
 	}
@@ -167,7 +167,7 @@ class PHPExcel_Worksheet_SheetView
 		if (in_array($pValue, self::$_sheetViewTypes)) {
 			$this->_sheetviewType = $pValue;
 		} else {
-			throw new Exception("Invalid sheetview layout type.");
+			throw new \Exception("Invalid sheetview layout type.");
 		}
 
 		return $this;

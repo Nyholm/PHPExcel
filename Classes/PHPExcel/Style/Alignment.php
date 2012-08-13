@@ -254,7 +254,7 @@ class PHPExcel_Style_Alignment implements PHPExcel_IComparable
 				}
 			}
 		} else {
-			throw new Exception("Invalid style array passed.");
+			throw new \Exception("Invalid style array passed.");
 		}
 		return $this;
 	}
@@ -358,7 +358,7 @@ class PHPExcel_Style_Alignment implements PHPExcel_IComparable
 				$this->_textRotation = $pValue;
 			}
 		} else {
-			throw new Exception("Text rotation should be a value between -90 and 90.");
+			throw new \Exception("Text rotation should be a value between -90 and 90.");
 		}
 
 		return $this;

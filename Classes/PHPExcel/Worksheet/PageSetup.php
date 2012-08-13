@@ -351,7 +351,7 @@ class PHPExcel_Worksheet_PageSetup
 				$this->_fitToPage = false;
 			}
 		} else {
-			throw new Exception("Scale must not be negative");
+			throw new \Exception("Scale must not be negative");
 		}
 		return $this;
 	}
@@ -580,7 +580,7 @@ class PHPExcel_Worksheet_PageSetup
 		if (isset($printAreas[$index-1])) {
 			return $printAreas[$index-1];
 		}
-		throw new Exception("Requested Print Area does not exist");
+		throw new \Exception("Requested Print Area does not exist");
 	}
 
 	/**
@@ -645,11 +645,11 @@ class PHPExcel_Worksheet_PageSetup
 	 */
 	public function setPrintArea($value, $index = 0, $method = self::SETPRINTRANGE_OVERWRITE) {
 		if (strpos($value,'!') !== false) {
-			throw new Exception('Cell coordinate must not specify a worksheet.');
+			throw new \Exception('Cell coordinate must not specify a worksheet.');
 		} elseif (strpos($value,':') === false) {
-			throw new Exception('Cell coordinate must be a range of cells.');
+			throw new \Exception('Cell coordinate must be a range of cells.');
 		} elseif (strpos($value,'$') !== false) {
-			throw new Exception('Cell coordinate must not be absolute.');
+			throw new \Exception('Cell coordinate must not be absolute.');
 		}
 		$value = strtoupper($value);
 
@@ -662,7 +662,7 @@ class PHPExcel_Worksheet_PageSetup
 					$index = count($printAreas) - abs($index) + 1;
 				}
 				if (($index <= 0) || ($index > count($printAreas))) {
-		    		throw new Exception('Invalid index for setting print range.');
+		    		throw new \Exception('Invalid index for setting print range.');
 				}
 				$printAreas[$index-1] = $value;
 				$this->_printArea = implode(',',$printAreas);
@@ -676,13 +676,13 @@ class PHPExcel_Worksheet_PageSetup
 					$index = abs($index) - 1;
 				}
 				if ($index > count($printAreas)) {
-		    		throw new Exception('Invalid index for setting print range.');
+		    		throw new \Exception('Invalid index for setting print range.');
 				}
 				$printAreas = array_merge(array_slice($printAreas,0,$index),array($value),array_slice($printAreas,$index));
 				$this->_printArea = implode(',',$printAreas);
 			}
 		} else {
-    		throw new Exception('Invalid method for setting print range.');
+    		throw new \Exception('Invalid method for setting print range.');
 		}
 
     	return $this;

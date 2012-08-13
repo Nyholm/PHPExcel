@@ -75,7 +75,7 @@ class PHPExcel_HashTable
 		if ($pSource == null) {
 			return;
 		} else if (!is_array($pSource)) {
-			throw new Exception('Invalid array parameter passed.');
+			throw new \Exception('Invalid array parameter passed.');
 		}
 
 		foreach ($pSource as $item) {

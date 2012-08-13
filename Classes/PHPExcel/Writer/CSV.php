@@ -111,7 +111,7 @@ class PHPExcel_Writer_CSV implements PHPExcel_Writer_IWriter {
 		// Open file
 		$fileHandle = fopen($pFilename, 'wb+');
 		if ($fileHandle === false) {
-			throw new Exception("Could not open file $pFilename for writing.");
+			throw new \Exception("Could not open file $pFilename for writing.");
 		}
 
 		if ($this->_useBOM) {
@@ -277,7 +277,7 @@ class PHPExcel_Writer_CSV implements PHPExcel_Writer_IWriter {
 			// Write to file
 			fwrite($pFileHandle, $line);
 		} else {
-			throw new Exception("Invalid parameters passed.");
+			throw new \Exception("Invalid parameters passed.");
 		}
 	}
 

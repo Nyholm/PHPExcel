@@ -1,4 +1,5 @@
 <?php
+namespace PHPExcel\Classes;
 /**
  * PHPExcel
  *

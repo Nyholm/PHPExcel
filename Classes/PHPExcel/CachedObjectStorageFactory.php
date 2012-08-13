@@ -173,7 +173,7 @@ class PHPExcel_CachedObjectStorageFactory
 	{
 		$activeMethods = array();
 		foreach(self::$_storageMethods as $storageMethod) {
-			$cacheStorageClass = 'PHPExcel_CachedObjectStorage_' . $storageMethod;
+			$cacheStorageClass = 'PHPExcel\Classes\PHPExcel_CachedObjectStorage_' . $storageMethod;
 			if (call_user_func(array($cacheStorageClass, 'cacheMethodIsAvailable'))) {
 				$activeMethods[] = $storageMethod;
 			}
@@ -196,7 +196,7 @@ class PHPExcel_CachedObjectStorageFactory
 			return FALSE;
 		}
 
-		$cacheStorageClass = 'PHPExcel_CachedObjectStorage_'.$method;
+		$cacheStorageClass = 'PHPExcel\Classes\PHPExcel_CachedObjectStorage_'.$method;
 		if (!call_user_func(array( $cacheStorageClass,
 								   'cacheMethodIsAvailable'))) {
 			return FALSE;
@@ -210,7 +210,7 @@ class PHPExcel_CachedObjectStorageFactory
 		}
 
 		if (self::$_cacheStorageMethod === NULL) {
-			self::$_cacheStorageClass = 'PHPExcel_CachedObjectStorage_' . $method;
+			self::$_cacheStorageClass = 'PHPExcel\Classes\PHPExcel_CachedObjectStorage_' . $method;
 			self::$_cacheStorageMethod = $method;
 		}
 		return TRUE;

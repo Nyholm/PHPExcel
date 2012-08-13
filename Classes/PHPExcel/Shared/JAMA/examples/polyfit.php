@@ -1,4 +1,5 @@
 <?php
+namespace PHPExcel\Classes;
 require_once "../Matrix.php";
 /*
 * @package JAMA

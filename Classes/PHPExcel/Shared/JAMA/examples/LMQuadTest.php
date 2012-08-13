@@ -1,4 +1,5 @@
 <?php
+namespace PHPExcel\Classes;
 /**
  * quadratic (p-o)'S'S(p-o)
  * solve for o, S

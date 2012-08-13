@@ -1,4 +1,5 @@
 <?php
+namespace PHPExcel\Classes;
 
 error_reporting(E_ALL);
 

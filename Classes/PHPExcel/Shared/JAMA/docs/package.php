@@ -1,4 +1,5 @@
 <?php
+namespace PHPExcel\Classes;
 include_once "includes/header.php";
 include_once "includes/navbar.php";
 ?>
@@ -18,6 +19,7 @@ Source Listing:
   ?>
 </ul>
 <?php
+
 if( isset($_REQUEST['view']) ) {
 	$hash = $_REQUEST['view'];
 	$n = array_search($hash, array_map(sha1, $files));

@@ -36,7 +36,7 @@ namespace PHPExcel\Classes;
  * @package    PHPExcel
  * @copyright  Copyright (c) 2006 - 2012 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_WorksheetIterator implements Iterator
+class PHPExcel_WorksheetIterator implements \Iterator
 {
 	/**
 	 * Spreadsheet to iterate

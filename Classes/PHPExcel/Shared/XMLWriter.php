@@ -42,7 +42,7 @@ if (!defined('DEBUGMODE_ENABLED')) {
  * @package	PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2012 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_Shared_XMLWriter extends XMLWriter {
+class PHPExcel_Shared_XMLWriter extends \XMLWriter {
 	/** Temporary storage method */
 	const STORAGE_MEMORY	= 1;
 	const STORAGE_DISK		= 2;

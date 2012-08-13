@@ -2050,12 +2050,14 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 		$record	  = 0x009D;						// Record identifier
 		$length	  = 0x0002;						// Bytes to follow
 
-		$rangeBounds = PHPExcel_Cell::rangeBoundaries($this->_phpSheet->getAutoFilter()->getRange());
-		$iNumFilters = 1 + $rangeBounds[1][0] - $rangeBounds[0][0];
+		if($this->_phpSheet->getAutoFilter()->getRange()!=''){
+			$rangeBounds = PHPExcel_Cell::rangeBoundaries($this->_phpSheet->getAutoFilter()->getRange());
+			$iNumFilters = 1 + $rangeBounds[1][0] - $rangeBounds[0][0];
 
-		$header   = pack("vv", $record, $length);
-		$data     = pack("v",  $iNumFilters);
-		$this->_append($header . $data);
+			$header   = pack("vv", $record, $length);
+			$data     = pack("v",  $iNumFilters);
+			$this->_append($header . $data);
+		}
 	}
 
 	/**
